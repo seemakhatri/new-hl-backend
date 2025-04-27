@@ -33,14 +33,12 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Dividend = void 0;
+exports.Consolidation = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
-const dividendSchema = new mongoose_1.Schema({
+const consolidationSchema = new mongoose_1.Schema({
     companyName: { type: String, required: true },
-    exDate: { type: Date, required: true },
-    paymentDate: { type: Date, required: true },
+    recordDate: { type: Date, required: true },
+    effectiveDate: { type: Date, required: true },
     notes: { type: String },
-    withholdingTax: { type: Number },
-    dividendAmount: { type: Number }
 });
-exports.Dividend = mongoose_1.default.model('Dividend', dividendSchema);
+exports.Consolidation = mongoose_1.default.model('Consolidation', consolidationSchema);

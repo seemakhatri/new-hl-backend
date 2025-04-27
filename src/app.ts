@@ -12,6 +12,14 @@ dotenv.config();
 connectDB();
 
 const app = express();
+
+const corsOptions = {
+    origin: 'https://hargreaves-lansdown.onrender.com', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],  
+    allowedHeaders: ['Content-Type', 'Authorization'], 
+  }
+
+
 app.use(cors()); 
 app.use(express.json());
 

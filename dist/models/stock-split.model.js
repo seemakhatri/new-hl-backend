@@ -33,14 +33,12 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Dividend = void 0;
+exports.StockSplit = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
-const dividendSchema = new mongoose_1.Schema({
+const stockSplitSchema = new mongoose_1.Schema({
     companyName: { type: String, required: true },
-    exDate: { type: Date, required: true },
-    paymentDate: { type: Date, required: true },
-    notes: { type: String },
-    withholdingTax: { type: Number },
-    dividendAmount: { type: Number }
+    recordDate: { type: Date, required: true },
+    effectiveDate: { type: Date, required: true },
+    notes: { type: String }
 });
-exports.Dividend = mongoose_1.default.model('Dividend', dividendSchema);
+exports.StockSplit = mongoose_1.default.model('StockSplit', stockSplitSchema);

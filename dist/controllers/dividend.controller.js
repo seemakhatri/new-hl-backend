@@ -9,12 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteDividend = exports.updateDividend = exports.getAllDividends = exports.createDividend = void 0;
+exports.deleteDividend = exports.getDividendById = exports.updateDividend = exports.getAllDividends = exports.createDividend = void 0;
 const dividend_model_1 = require("../models/dividend.model");
 const createDividend = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { companyName, exDate, paymentDate, notes } = req.body;
-        const dividend = new dividend_model_1.Dividend({ companyName, exDate, paymentDate, notes });
+        console.log('Incoming body:', req.body);
+        const { companyName, exDate, paymentDate, notes, withholdingTax, dividendAmount } = req.body;
+        const dividend = new dividend_model_1.Dividend({ companyName, exDate, paymentDate, notes, withholdingTax, dividendAmount });
         yield dividend.save();
         res.status(201).json({ message: 'Dividend added', dividend });
     }
@@ -48,6 +49,21 @@ const updateDividend = (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
 });
 exports.updateDividend = updateDividend;
+const getDividendById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id } = req.params;
+        const dividend = yield dividend_model_1.Dividend.findById(id);
+        if (!dividend) {
+            res.status(404).json({ message: 'Dividend not found' });
+            return;
+        }
+        res.status(200).json(dividend);
+    }
+    catch (error) {
+        res.status(500).json({ message: 'Server error', error });
+    }
+});
+exports.getDividendById = getDividendById;
 const deleteDividend = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;

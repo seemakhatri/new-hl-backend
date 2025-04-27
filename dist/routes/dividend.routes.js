@@ -9,5 +9,6 @@ const router = express_1.default.Router();
 router.post('/', dividend_controller_1.createDividend);
 router.get('/', dividend_controller_1.getAllDividends);
 router.put('/:id', dividend_controller_1.updateDividend);
+router.get('/:id', dividend_controller_1.getDividendById);
 router.delete('/:id', dividend_controller_1.deleteDividend);
 exports.default = router;
