@@ -14,7 +14,7 @@ connectDB();
 const app = express();
 
 const corsOptions = {
-    origin: 'https://hargreaves-lansdown.onrender.com', 
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],  
     allowedHeaders: ['Content-Type', 'Authorization'], 
   }
