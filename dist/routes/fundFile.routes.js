@@ -11,6 +11,6 @@ router.get('/', fundFile_controller_1.getAllFundFiles);
 router.get('/:id', fundFile_controller_1.getFundFileById);
 router.put('/:id', fundFile_controller_1.updateFundFile);
 router.delete('/:id', fundFile_controller_1.deleteFundFile);
-router.put('/:id/approve', fundFile_controller_1.approveFundFile);
-router.put('/:id/reject', fundFile_controller_1.rejectFundFile);
+router.put('/approve/:id', fundFile_controller_1.approveFundFile);
+router.put('/reject/:id', fundFile_controller_1.rejectFundFile);
 exports.default = router;
