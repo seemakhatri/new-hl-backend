@@ -23,12 +23,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Delisting = void 0;
+exports.MenuItem = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
-const delistingSchema = new mongoose_1.Schema({
-    companyName: { type: String, required: true },
-    exDate: { type: Date, required: true },
-    paymentDate: { type: Date, required: true },
-    notes: { type: String },
+const menuSchema = new mongoose_1.Schema({
+    label: { type: String, required: true },
+    route: { type: String, required: true }
 });
-exports.Delisting = mongoose_1.default.model('Delisting', delistingSchema);
+exports.MenuItem = mongoose_1.default.model('MenuItem', menuSchema);

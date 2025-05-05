@@ -7,6 +7,9 @@ import dividendRoutes from './routes/dividend.routes';
 import delistingRoutes from './routes/delisting.routes';
 import stockSplitRoutes from './routes/stock-split.routes';
 import consolidationRoutes from './routes/consolidation.routes';
+import menuRoutes from './routes/menu.routes';
+import stockFileRoutes from './routes/stockFile.routes';
+import fundFileRoutes from './routes/fundFile.routes';
 
 dotenv.config();
 connectDB();
@@ -31,6 +34,9 @@ app.use('/api/dividends', dividendRoutes);
 app.use('/api/delistings', delistingRoutes);
 app.use('/api/stock-splits', stockSplitRoutes);
 app.use('/api/consolidations', consolidationRoutes);
+app.use('/api/menu-items', menuRoutes);
+app.use('/api/stock-files', stockFileRoutes);
+app.use('/api/fund-files', fundFileRoutes)
 
 
 const PORT = process.env.PORT || 3000;

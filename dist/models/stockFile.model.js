@@ -23,12 +23,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Delisting = void 0;
+exports.StockFile = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
-const delistingSchema = new mongoose_1.Schema({
-    companyName: { type: String, required: true },
-    exDate: { type: Date, required: true },
-    paymentDate: { type: Date, required: true },
-    notes: { type: String },
+const stockFileSchema = new mongoose_1.Schema({
+    stockName: { type: String, required: true },
+    isin: { type: String, required: true },
+    sedolOrTicker: { type: String, required: true },
+    status: { type: String, enum: ['pending', 'approved', 'rejected'], default: 'pending' },
+    rejectionReason: { type: String },
 });
-exports.Delisting = mongoose_1.default.model('Delisting', delistingSchema);
+exports.StockFile = mongoose_1.default.model('StockFile', stockFileSchema);
