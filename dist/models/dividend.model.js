@@ -26,9 +26,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Dividend = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
 const dividendSchema = new mongoose_1.Schema({
-    companyName: { type: String },
-    exDate: { type: Date },
-    paymentDate: { type: Date },
+    companyName: { type: String, required: true },
+    exDate: { type: Date, required: true },
+    paymentDate: { type: Date, required: true },
     notes: { type: String },
     withholdingTax: { type: Number },
     dividendAmount: { type: Number }

@@ -10,9 +10,9 @@ export interface IDividend extends Document {
 }
 
 const dividendSchema = new Schema<IDividend>({
-  companyName: { type: String },
-  exDate: { type: Date },
-  paymentDate: { type: Date },
+  companyName: { type: String, required: true },
+  exDate: { type: Date, required: true },
+  paymentDate: { type: Date, required: true },
   notes: { type: String },
   withholdingTax: { type: Number },
   dividendAmount: { type: Number }
